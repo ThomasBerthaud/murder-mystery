@@ -2,8 +2,12 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import(/* webpackChunkName: "bulma" */ "bulma/css/bulma.css");
-import(/* webpackChunkName: "fontawesome" */ "@fortawesome/fontawesome-free/css/all.css");
+
+// TODO improve bulma import to be able to customize it
+import "bulma/css/bulma.min.css";
+
+//TODO improve fontawesome import
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 Vue.config.productionTip = false;
 

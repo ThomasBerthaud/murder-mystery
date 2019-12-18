@@ -5,8 +5,11 @@
 </template>
 
 <style>
-body {
-  height: 100vh;
-  width: 100vw;
+html,
+body,
+#app {
+  overflow: hidden !important;
+  height: 100%;
+  width: 100%;
 }
 </style>

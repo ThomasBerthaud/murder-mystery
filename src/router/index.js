@@ -1,24 +1,36 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Introduction from "../views/Introduction.vue";
+import Mystery from "../views/mystery/Mystery.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: Home
+    name: "introduction",
+    component: Introduction
   },
   {
-    path: "/emails",
-    name: "emails",
-    component: () => import(/* webpackChunkName: "emails" */ "../views/Emails.vue")
-  },
-  {
-    path: "/chat",
-    name: "chat",
-    component: () => import(/* webpackChunkName: "chat" */ "../views/Chat.vue")
+    path: "/mystery",
+    component: Mystery,
+    children: [
+      {
+        path: "",
+        name: "emails",
+        component: () => import(/* webpackChunkName: "emails" */ "../views/mystery/Emails.vue")
+      },
+      {
+        path: "emails",
+        name: "emails",
+        component: () => import(/* webpackChunkName: "emails" */ "../views/mystery/Emails.vue")
+      },
+      {
+        path: "chat",
+        name: "chat",
+        component: () => import(/* webpackChunkName: "chat" */ "../views/mystery/Chat.vue")
+      }
+    ]
   }
 ];
 
