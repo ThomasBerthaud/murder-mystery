@@ -3,11 +3,10 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-// TODO improve bulma import to be able to customize it
-import "bulma/css/bulma.min.css";
-
 //TODO improve fontawesome import
 import "@fortawesome/fontawesome-free/css/all.min.css";
+
+import "./assets/tailwind.css";
 
 Vue.config.productionTip = false;
 
