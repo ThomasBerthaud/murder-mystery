@@ -17,8 +17,7 @@ const routes = [
     children: [
       {
         path: "",
-        name: "emails",
-        component: () => import(/* webpackChunkName: "emails" */ "../views/mystery/Emails.vue")
+        redirect: "emails"
       },
       {
         path: "emails",
