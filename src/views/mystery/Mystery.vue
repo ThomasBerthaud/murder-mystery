@@ -4,12 +4,12 @@
     <div class="h-full flex">
       <div class="applications">
         <router-link to="/mystery/emails">
-          <div class="application-icon" :class="{ active: isEmailsRoute }">
+          <div class="application-icon" :class="{ active: isRoute('emails') }">
             <font-awesome-icon :icon="['far', 'envelope']" fixed-width />
           </div>
         </router-link>
         <router-link to="/mystery/chat">
-          <div class="application-icon" :class="{ active: isChatRoute }">
+          <div class="application-icon" :class="{ active: isRoute('chat') }">
             <font-awesome-icon :icon="['far', 'comment']" fixed-width />
           </div>
         </router-link>
@@ -23,12 +23,9 @@
 
 <script>
 export default {
-  computed: {
-    isEmailsRoute() {
-      return this.$route.name === "emails";
-    },
-    isChatRoute() {
-      return this.$route.name === "chat";
+  methods: {
+    isRoute(routeName) {
+      return !!this.$route.matched.find(route => route.name === routeName);
     }
   }
 };
