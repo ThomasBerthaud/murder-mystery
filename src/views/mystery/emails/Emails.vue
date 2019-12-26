@@ -1,20 +1,20 @@
 <template>
   <div class="flex h-full">
-    <div class="w-1/4 bg-gray-100 p-2 flex flex-col">
+    <div class="w-1/5 bg-gray-100 p-2 flex flex-col">
       <router-link :to="{ name: 'received' }" class="category-title" :class="{ active: isRoute('received') }">
-        Messages Reçus
+        <font-awesome-icon :icon="['fas', 'inbox']" fixed-width /> Messages Reçus
       </router-link>
       <router-link :to="{ name: 'sent' }" class="category-title" :class="{ active: isRoute('sent') }">
-        Messages Envoyés
+        <font-awesome-icon :icon="['fas', 'paper-plane']" fixed-width /> Messages Envoyés
       </router-link>
       <router-link :to="{ name: 'spam' }" class="category-title" :class="{ active: isRoute('spam') }">
-        Indésirables
+        <font-awesome-icon :icon="['fas', 'exclamation-circle']" fixed-width /> Indésirables
       </router-link>
       <router-link :to="{ name: 'trash' }" class="category-title" :class="{ active: isRoute('trash') }">
-        Corbeille
+        <font-awesome-icon :icon="['fas', 'trash']" fixed-width /> Corbeille
       </router-link>
     </div>
-    <div class="w-3/4 p-3">
+    <div class="w-4/5">
       <router-view></router-view>
     </div>
   </div>

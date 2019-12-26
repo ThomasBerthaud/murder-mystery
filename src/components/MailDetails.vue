@@ -1,5 +1,6 @@
 <template>
-  <div class="mail-details">
+  <div class="p-3">
+    {{ mail.title }}
     <div class="px-1">
       <span class="font-bold">De :</span>
       Boss <span class="text-sm text-gray-700">(boss@custom-country-police.com)</span>
@@ -34,5 +35,14 @@ export default {
 <style scoped>
 .separator {
   @apply w-full h-px border border-blue-300 mb-3;
+}
+.btn {
+  @apply font-bold py-1 px-2 rounded;
+}
+.btn-blue {
+  @apply bg-blue-500 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-700;
 }
 </style>

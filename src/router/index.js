@@ -31,10 +31,10 @@ const routes = [
             redirect: MAIL_CATEGORIES[0]
           },
           ...MAIL_CATEGORIES.map(mailCategory => ({
-            path: `${mailCategory}/:id?`,
+            path: mailCategory,
             name: mailCategory,
             component: () => import(/* webpackChunkName: "category" */ "../views/mystery/emails/EmailsCategory.vue"),
-            props: route => ({ mailCategory, id: route.params.id })
+            props: { mailCategory }
           }))
         ]
       },

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div v-if="!mailSelected" class="mail-list">
-      <MailsList :mails="mails" @selected="displayMail($event)" />
+    <div v-if="mails.length" class="flex">
+      <MailsList class="w-1/5 no-overflow" :mails="mails" :mailSelected="mailSelected" @select="displayMail($event)" />
+      <MailDetails v-if="mailSelected" class="w-4/5 no-overflow" :mail="mailSelected" />
+      <div v-else class="w-4/5 no-mail">Pas de mail sélectionné</div>
     </div>
-    <div v-else>
-      <MailDetails :mail="mailSelected" @close="displayList()" />
-    </div>
+    <div v-else class="no-mail">Pas de mails</div>
   </div>
 </template>
 
@@ -21,28 +21,30 @@ export default {
     mailCategory: {
       required: true,
       type: String
-    },
-    id: {
-      type: String
     }
+  },
+  data() {
+    return { mailSelected: null };
   },
   computed: {
     mails() {
       return this.$store.state.mails[this.mailCategory];
-    },
-    mailSelected() {
-      return this.mails.find(mail => mail.id === this.id);
     }
   },
   methods: {
     displayMail(mail) {
       this.mailSelected = mail;
-    },
-    displayList() {
-      this.mailSelected = null;
     }
   }
 };
 </script>
 
-<style></style>
+<style scoped>
+.no-overflow {
+  overflow-y: scroll;
+  max-height: calc(100vh - 30px);
+}
+.no-mail {
+  @apply text-3xl text-center mt-10 text-gray-500;
+}
+</style>
