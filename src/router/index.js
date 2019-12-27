@@ -14,7 +14,7 @@ const routes = [
     component: Introduction
   },
   {
-    path: "/mystery",
+    path: "/os",
     component: Mystery,
     children: [
       {

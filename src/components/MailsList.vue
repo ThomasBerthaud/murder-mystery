@@ -2,9 +2,11 @@
   <div class="">
     <div v-for="mail of mails" class="" :key="mail.id">
       <div @click="selectMail(mail)" class="mail-line" :class="{ active: isSelected(mail) }">
-        <span class="font-bold">{{ mail.from || "Inconnu" }}</span> -
-        <span class="time">{{ mail.time | parseTime }}</span>
-        <div class="pl-3">{{ mail.title }}</div>
+        <div class="flex justify-between items-center">
+          <span class="font-bold">{{ mail.from.name || "Inconnu" }}</span>
+          <span class="time">{{ mail.time | parseTime }}</span>
+        </div>
+        <div class="mail-title">{{ mail.title }}</div>
       </div>
       <div class="separator"></div>
     </div>
@@ -49,12 +51,19 @@ export default {
   @apply bg-gray-200 shadow-lg;
 }
 .time {
-  @apply text-gray-700 text-xs;
+  @apply text-gray-700 text-xs text-right;
+}
+.mail-title {
+  @apply whitespace-no-wrap overflow-hidden text-gray-800;
+  text-overflow: ellipsis;
+}
+.mail-line.active .mail-title {
+  @apply text-gray-100;
 }
 .mail-line.active {
   @apply bg-blue-500 text-white shadow-lg;
 }
 .mail-line.active .time {
-  @apply text-gray-100;
+  @apply text-gray-200;
 }
 </style>

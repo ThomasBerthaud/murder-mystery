@@ -3,12 +3,12 @@
     <div class="introduction">
       <h1 class="text-6xl font-bold">Murder Mystery</h1>
       <h2 class="text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-      <router-link class="btn-white mt-8" to="/mystery">Resolve the mystery</router-link>
+      <router-link class="btn-white mt-8" to="/os">Resolve the mystery</router-link>
     </div>
   </section>
 </template>
 
-css.<style scoped>
+<style scoped>
 .introduction {
   @apply flex flex-col items-center justify-center;
   @apply h-full text-white;

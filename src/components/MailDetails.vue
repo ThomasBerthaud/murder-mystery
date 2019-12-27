@@ -1,22 +1,20 @@
 <template>
   <div class="p-3">
-    {{ mail.title }}
     <div class="px-1">
       <span class="font-bold">De :</span>
-      Boss <span class="text-sm text-gray-700">(boss@custom-country-police.com)</span>
+      {{ mail.from.name }} <span class="text-sm text-gray-700">({{ mail.from.email }})</span>
     </div>
     <div class="px-1">
       <span class="font-bold">A :</span>
       Detective <span class="text-sm text-gray-700">(detective@custom-country-police.com)</span>
     </div>
     <div class="px-1 text-right text-sm text-gray-600">
-      23/12/2019 - 18:19
+      {{ mail.time }}
     </div>
     <div class="separator"></div>
     <div class="px-1">
-      <h1 class="text-2xl font-bold">Nouvelle mission</h1>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ducimus nulla officiis fuga necessitatibus et voluptate
-      incidunt cupiditate neque a, quos dolor vel at corporis tempora atque aspernatur quidem perspiciatis rerum?
+      <h1 class="text-2xl font-bold">{{ mail.title }}</h1>
+      {{ mail.content }}
     </div>
   </div>
 </template>

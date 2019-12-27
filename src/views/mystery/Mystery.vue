@@ -3,12 +3,12 @@
     <div class="header">Mystery OS <span class="text-sm">v1.0</span></div>
     <div class="h-full flex">
       <div class="applications">
-        <router-link to="/mystery/emails">
+        <router-link to="/os/emails">
           <div class="application-icon" :class="{ active: isRoute('emails') }">
             <font-awesome-icon :icon="['far', 'envelope']" fixed-width />
           </div>
         </router-link>
-        <router-link to="/mystery/chat">
+        <router-link to="/os/chat">
           <div class="application-icon" :class="{ active: isRoute('chat') }">
             <font-awesome-icon :icon="['far', 'comment']" fixed-width />
           </div>

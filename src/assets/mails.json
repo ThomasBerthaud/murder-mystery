@@ -1,0 +1,56 @@
+{
+  "received": [
+    {
+      "id": "1",
+      "title": "Nouvelle Mission",
+      "content": "lorem ipsum",
+      "from": { "name": "Boss", "email": "email@custom.com" },
+      "time": "0"
+    },
+    {
+      "id": "2",
+      "title": "Petit déjeuner",
+      "content": "super mail de test",
+      "from": { "name": "Service", "email": "service@custom.com" },
+      "time": "0"
+    },
+    {
+      "id": "3",
+      "title": "Petit déjeuner",
+      "content": "super mail de test",
+      "from": { "name": "Boss", "email": "email@custom.com" },
+      "time": "0"
+    },
+    {
+      "id": "4",
+      "title": "Petit déjeuner",
+      "content": "super mail de test",
+      "from": { "name": "Boss", "email": "email@custom.com" },
+      "time": "0"
+    },
+    {
+      "id": "5",
+      "title": "Petit déjeuner",
+      "content": "super mail de test",
+      "from": { "name": "Boss", "email": "email@custom.com" },
+      "time": "0"
+    },
+    {
+      "id": "6",
+      "title": "Petit déjeuner",
+      "content": "super mail de test",
+      "from": { "name": "Boss", "email": "email@custom.com" },
+      "time": "0"
+    },
+    {
+      "id": "7",
+      "title": "Petit déjeuner",
+      "content": "super mail de test",
+      "from": { "name": "Boss", "email": "email@custom.com" },
+      "time": "0"
+    }
+  ],
+  "sent": [],
+  "spam": [],
+  "trash": []
+}
