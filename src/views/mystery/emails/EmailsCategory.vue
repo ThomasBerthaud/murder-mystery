@@ -41,7 +41,8 @@ export default {
 
 <style scoped>
 .no-overflow {
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
   max-height: calc(100vh - 30px);
 }
 .no-mail {

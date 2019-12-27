@@ -5,8 +5,6 @@ import Mystery from "../views/mystery/Mystery.vue";
 
 Vue.use(VueRouter);
 
-const MAIL_CATEGORIES = ["received", "sent", "spam", "trash"];
-
 const routes = [
   {
     path: "/",
@@ -28,14 +26,13 @@ const routes = [
         children: [
           {
             path: "",
-            redirect: MAIL_CATEGORIES[0]
+            redirect: "received"
           },
-          ...MAIL_CATEGORIES.map(mailCategory => ({
-            path: mailCategory,
-            name: mailCategory,
+          {
+            path: ":mailCategory",
             component: () => import(/* webpackChunkName: "category" */ "../views/mystery/emails/EmailsCategory.vue"),
-            props: { mailCategory }
-          }))
+            props: true
+          }
         ]
       },
       {
