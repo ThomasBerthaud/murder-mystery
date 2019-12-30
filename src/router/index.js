@@ -16,18 +16,10 @@ const routes = [
     component: Mystery,
     children: [
       {
-        path: "",
-        redirect: "emails"
-      },
-      {
         path: "emails",
         name: "emails",
         component: () => import(/* webpackChunkName: "emails" */ "../views/mystery/emails/Emails.vue"),
         children: [
-          {
-            path: "",
-            redirect: "received"
-          },
           {
             path: ":mailCategory",
             component: () => import(/* webpackChunkName: "category" */ "../views/mystery/emails/EmailsCategory.vue"),

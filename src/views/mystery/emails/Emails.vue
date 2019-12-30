@@ -1,16 +1,16 @@
 <template>
   <div class="flex h-full">
     <div class="w-1/5 bg-gray-100 p-2 flex flex-col">
-      <router-link to="received" class="category-title" :class="{ active: isRoute('received') }">
+      <router-link to="/os/emails/received" class="category-title" :class="{ active: isRoute('received') }">
         <font-awesome-icon :icon="['fas', 'inbox']" fixed-width /> Messages Reçus
       </router-link>
-      <router-link to="sent" class="category-title" :class="{ active: isRoute('sent') }">
+      <router-link to="/os/emails/sent" class="category-title" :class="{ active: isRoute('sent') }">
         <font-awesome-icon :icon="['fas', 'paper-plane']" fixed-width /> Messages Envoyés
       </router-link>
-      <router-link to="spam" class="category-title" :class="{ active: isRoute('spam') }">
+      <router-link to="/os/emails/spam" class="category-title" :class="{ active: isRoute('spam') }">
         <font-awesome-icon :icon="['fas', 'exclamation-circle']" fixed-width /> Indésirables
       </router-link>
-      <router-link to="trash" class="category-title" :class="{ active: isRoute('trash') }">
+      <router-link to="/os/emails/trash" class="category-title" :class="{ active: isRoute('trash') }">
         <font-awesome-icon :icon="['fas', 'trash']" fixed-width /> Corbeille
       </router-link>
     </div>

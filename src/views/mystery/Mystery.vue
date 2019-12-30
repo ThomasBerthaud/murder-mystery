@@ -3,7 +3,7 @@
     <div class="header">Mystery OS <span class="text-sm">v1.0</span></div>
     <div class="h-full flex">
       <div class="applications">
-        <router-link to="/os/emails">
+        <router-link to="/os/emails/received">
           <div class="application-icon" :class="{ active: isRoute('emails') }">
             <font-awesome-icon :icon="['far', 'envelope']" fixed-width />
           </div>

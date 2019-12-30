@@ -5,7 +5,7 @@
       "title": "Nouvelle Mission",
       "content": "lorem ipsum",
       "from": { "name": "Boss", "email": "email@custom.com" },
-      "time": "0"
+      "time": { "hour": 2 }
     },
     {
       "id": "2",

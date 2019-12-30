@@ -9,7 +9,7 @@
       Detective <span class="text-sm text-gray-700">(detective@custom-country-police.com)</span>
     </div>
     <div class="px-1 text-right text-sm text-gray-600">
-      {{ mail.time }}
+      {{ mail.time | parseDate }}
     </div>
     <div class="separator"></div>
     <div class="px-1">
