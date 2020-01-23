@@ -1,2 +1,0 @@
-mettre toutes les dates relatives par rapport à la date où l'utilisateur a commencé l'aventure
-gestion des mails (imports au fur et à mesure) : utiliser le state couplé au localstorage pour stocker les mails

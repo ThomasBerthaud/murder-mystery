@@ -4,7 +4,7 @@
       <div @click="selectMail(mail)" class="mail-line" :class="{ active: isSelected(mail) }">
         <div class="flex justify-between items-center">
           <span class="font-bold">{{ mail.from.name || "Inconnu" }}</span>
-          <span class="time">{{ mail.time | parseTime }}</span>
+          <span class="time">{{ mail.time | parseDate }}</span>
         </div>
         <div class="mail-title">{{ mail.title }}</div>
       </div>

@@ -15,6 +15,7 @@ export default {
   methods: {
     setStartTime() {
       localStorage.setItem("startTime", new Date());
+      this.$store.dispatch("loadMailsFromStep", "introduction");
     }
   }
 };
