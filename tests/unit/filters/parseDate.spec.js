@@ -1,4 +1,5 @@
 import parseDate from "@/filters/parseDate";
+import "@/plugins/dateformat";
 
 describe("parseDate filter", () => {
   it("should return a formatted date in the past, starting from startTime", () => {
