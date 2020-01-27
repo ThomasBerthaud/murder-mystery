@@ -1,4 +1,6 @@
-export default function parseDate({ year, month, date, hours, minutes, seconds }) {
+import dateformat from "dateformat";
+
+export default function parseDate({ year, month, date, hours, minutes, seconds }, type) {
   const startTime = localStorage.getItem("startTime");
   if (!startTime) {
     throw new Error("startTime not defined");
@@ -11,5 +13,5 @@ export default function parseDate({ year, month, date, hours, minutes, seconds }
   parsedDate.setUTCHours(parsedDate.getUTCHours() - (hours || 0));
   parsedDate.setUTCMinutes(parsedDate.getUTCMinutes() - (minutes || 0));
   parsedDate.setUTCSeconds(parsedDate.getUTCSeconds() - (seconds || 0));
-  return parsedDate.toDateString();
+  return dateformat(parsedDate, type);
 }

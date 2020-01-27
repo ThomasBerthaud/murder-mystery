@@ -5,6 +5,7 @@ import store from "./store";
 
 import "./filters";
 import "./plugins/fontawesome";
+import "./plugins/dateformat";
 import "./assets/tailwind.css";
 
 Vue.config.productionTip = false;
