@@ -3,6 +3,7 @@
     <div class="w-1/5 bg-gray-100 p-2 flex flex-col">
       <router-link to="/os/emails/received" class="category-title" :class="{ active: isRoute('received') }">
         <font-awesome-icon :icon="['fas', 'inbox']" fixed-width /> Messages Reçus
+        <span v-if="nbUnread > 0" class="badge">{{ nbUnread }}</span>
       </router-link>
       <router-link to="/os/emails/sent" class="category-title" :class="{ active: isRoute('sent') }">
         <font-awesome-icon :icon="['fas', 'paper-plane']" fixed-width /> Messages Envoyés
@@ -22,6 +23,11 @@
 
 <script>
 export default {
+  computed: {
+    nbUnread() {
+      return this.$store.getters.nbUnreadMails;
+    }
+  },
   methods: {
     isRoute(mailCategory) {
       return this.$route.params.mailCategory === mailCategory;
@@ -43,5 +49,9 @@ export default {
 .category-title.active {
   @apply text-white;
   @apply bg-blue-500;
+}
+.badge {
+  @apply bg-red-500;
+  @apply text-white rounded p-1;
 }
 </style>

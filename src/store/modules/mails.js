@@ -7,23 +7,36 @@ const state = {
   trash: getFromLocalStorage("mails-trash")
 };
 
-const getters = {};
+const getters = {
+  nbUnreadMails(state) {
+    return state.received.filter(mail => !mail.seen).length;
+  }
+};
 
 const actions = {
   loadMailsFromStep({ commit }, step) {
     setTimeout(() => {
       const mailsFromStep = require(`@/assets/mails/${step}.json`);
-      for (let [type, mails] of Object.entries(mailsFromStep)) {
-        commit("add", { type, mails });
+      for (let [mailCategory, mails] of Object.entries(mailsFromStep)) {
+        commit("add", { mailCategory, mails });
       }
     }, 200);
   }
 };
 
 const mutations = {
-  add(state, { type, mails }) {
-    state[type] = [...mails, ...state[type]];
-    localStorage.setItem(`mails-${type}`, JSON.stringify(state[type]));
+  add(state, { mailCategory, mails }) {
+    state[mailCategory] = [...mails, ...state[mailCategory]];
+    localStorage.setItem(`mails-${mailCategory}`, JSON.stringify(state[mailCategory]));
+  },
+  setAsRead(state, { mail, mailCategory }) {
+    state[mailCategory] = state[mailCategory].map(storedMail => {
+      if (storedMail.id === mail.id) {
+        storedMail.seen = true;
+      }
+      return storedMail;
+    });
+    localStorage.setItem(`mails-${mailCategory}`, JSON.stringify(state[mailCategory]));
   }
 };
 

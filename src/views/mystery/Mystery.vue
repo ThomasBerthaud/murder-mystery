@@ -5,6 +5,7 @@
       <div class="applications">
         <router-link to="/os/emails/received">
           <div class="application-icon" :class="{ active: isRoute('emails') }">
+            <span v-if="nbUnreadMails > 0" class="badge">{{ nbUnreadMails }}</span>
             <font-awesome-icon :icon="['far', 'envelope']" fixed-width />
           </div>
         </router-link>
@@ -23,6 +24,11 @@
 
 <script>
 export default {
+  computed: {
+    nbUnreadMails() {
+      return this.$store.getters.nbUnreadMails;
+    }
+  },
   methods: {
     isRoute(routeName) {
       return !!this.$route.matched.find(route => route.name === routeName);
@@ -45,6 +51,7 @@ export default {
 }
 
 .application-icon {
+  @apply relative;
   @apply cursor-pointer;
   @apply text-white;
   @apply bg-gray-600;
@@ -57,5 +64,14 @@ export default {
 }
 .application-icon.active {
   @apply bg-blue-500;
+}
+
+.badge {
+  @apply absolute;
+  @apply bg-red-600 rounded-full;
+  @apply text-xs font-bold;
+  top: 6px;
+  padding: 0 5px;
+  right: 7px;
 }
 </style>

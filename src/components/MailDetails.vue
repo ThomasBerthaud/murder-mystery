@@ -2,7 +2,7 @@
   <div class="p-3">
     <div class="px-1">
       <span class="font-bold">De :</span>
-      {{ mail.from.name }} <span class="text-sm text-gray-700">({{ mail.from.email }})</span>
+      {{ mail.sender.name }} <span class="text-sm text-gray-700">({{ mail.sender.email }})</span>
     </div>
     <div class="px-1">
       <span class="font-bold">A :</span>

@@ -1,9 +1,9 @@
 <template>
   <div class="">
     <div v-for="mail of mails" class="" :key="mail.id">
-      <div @click="selectMail(mail)" class="mail-line" :class="{ active: isSelected(mail) }">
+      <div @click="selectMail(mail)" class="mail-line" :class="{ active: isSelected(mail), unread: isUnread(mail) }">
         <div class="flex justify-between items-center">
-          <span class="font-bold">{{ mail.from.name || "Inconnu" }}</span>
+          <span class="">{{ mail.sender.name || "Inconnu" }}</span>
           <span class="time">{{ mail.time | parseDate("short") }}</span>
         </div>
         <div class="mail-title">{{ mail.title }}</div>
@@ -35,6 +35,9 @@ export default {
     },
     isSelected(mail) {
       return this.mailSelected && mail.id === this.mailSelected.id;
+    },
+    isUnread(mail) {
+      return !mail.seen;
     }
   }
 };
@@ -65,5 +68,8 @@ export default {
 }
 .mail-line.active .time {
   @apply text-gray-200;
+}
+.mail-line.unread {
+  @apply border-l-2 border-blue-500 font-bold;
 }
 </style>

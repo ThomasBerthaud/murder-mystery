@@ -34,6 +34,7 @@ export default {
   methods: {
     displayMail(mail) {
       this.mailSelected = mail;
+      this.$store.commit("setAsRead", { mail, mailCategory: this.mailCategory });
     }
   }
 };
