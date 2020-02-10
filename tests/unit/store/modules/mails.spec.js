@@ -3,6 +3,17 @@ import mailsStore from "@/store/modules/mails.js";
 jest.useFakeTimers();
 
 describe("mails vuex store module", () => {
+  it("should clear mails", () => {
+    // GIVEN
+    const state = { received: [{ id: 1 }], sent: [{ id: 2 }], spam: [{ id: 3 }], trash: [{ id: 4 }] };
+
+    // WHEN
+    mailsStore.mutations.clear(state);
+
+    // THEN
+    expect(state).toEqual({ received: [], sent: [], spam: [], trash: [] });
+    expect(localStorage.clear).toHaveBeenCalled();
+  });
   it("should add mails to state", () => {
     // GIVEN
     const state = { received: [{ id: 1 }] };
@@ -25,7 +36,7 @@ describe("mails vuex store module", () => {
     }));
 
     // WHEN
-    mailsStore.actions.loadMailsFromStep({ commit }, "introduction");
+    mailsStore.actions.loadFromStep({ commit }, "introduction");
     jest.runAllTimers();
 
     // THEN

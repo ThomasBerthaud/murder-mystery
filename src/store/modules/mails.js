@@ -14,7 +14,7 @@ const getters = {
 };
 
 const actions = {
-  loadMailsFromStep({ commit }, step) {
+  loadFromStep({ commit }, step) {
     setTimeout(() => {
       const mailsFromStep = require(`@/assets/mails/${step}.json`);
       for (let [mailCategory, mails] of Object.entries(mailsFromStep)) {
@@ -25,6 +25,13 @@ const actions = {
 };
 
 const mutations = {
+  clear(state) {
+    state.received = [];
+    state.sent = [];
+    state.spam = [];
+    state.trash = [];
+    localStorage.clear();
+  },
   add(state, { mailCategory, mails }) {
     state[mailCategory] = [...mails, ...state[mailCategory]];
     localStorage.setItem(`mails-${mailCategory}`, JSON.stringify(state[mailCategory]));

@@ -1,5 +1,3 @@
-// https://docs.cypress.io/api/introduction/api.html
-
 describe("Home page", () => {
   it("should visit the app root url", () => {
     cy.visit("/");
@@ -16,7 +14,7 @@ describe("Home page", () => {
     cy.clock();
     cy.visit("/");
     cy.get(".btn-white").click();
-    cy.tick(400); //wait for mails to display
+    cy.tick(200); //wait for mails to display
     cy.get(".mail-line.unread").click();
     cy.visit("/");
     cy.get(".btn-white").click();

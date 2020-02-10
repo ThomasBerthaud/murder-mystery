@@ -3,7 +3,7 @@
     <div class="introduction">
       <h1 class="text-6xl font-bold">Murder Mystery</h1>
       <h2 class="text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
-      <router-link class="btn-white mt-8" @click.native="setStartTime()" to="/os/emails/received">
+      <router-link class="btn-white mt-8" to="/os/emails/received">
         Resolve the mystery
       </router-link>
     </div>
@@ -12,11 +12,10 @@
 
 <script>
 export default {
-  methods: {
-    setStartTime() {
-      localStorage.setItem("startTime", new Date());
-      this.$store.dispatch("loadMailsFromStep", "introduction");
-    }
+  beforeRouteLeave(to, from, next) {
+    localStorage.setItem("startTime", new Date());
+    this.$store.dispatch("loadFromStep", "introduction");
+    next();
   }
 };
 </script>

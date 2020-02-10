@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import store from "../store";
 import Introduction from "../views/Introduction.vue";
 import Mystery from "../views/mystery/Mystery.vue";
 
@@ -9,7 +10,11 @@ const routes = [
   {
     path: "/",
     name: "introduction",
-    component: Introduction
+    component: Introduction,
+    beforeEnter: (from, to, next) => {
+      store.commit("clear");
+      next();
+    }
   },
   {
     path: "/os",

@@ -23,6 +23,10 @@ export default {
       type: String
     }
   },
+  beforeRouteUpdate(from, to, next) {
+    this.mailSelected = null;
+    next();
+  },
   data() {
     return { mailSelected: null };
   },
