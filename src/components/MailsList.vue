@@ -24,11 +24,6 @@ export default {
       type: Object
     }
   },
-  filters: {
-    parseTime(value) {
-      return new Date(new Date() - (value || 0)).toDateString();
-    }
-  },
   methods: {
     selectMail(mail) {
       this.$emit("select", mail);
