@@ -25,3 +25,7 @@ yarn-error.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Cypress
+tests/e2e/screenshots
+tests/e2e/videos
