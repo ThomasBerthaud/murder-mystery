@@ -12,7 +12,6 @@ describe("mails vuex store module", () => {
 
     // THEN
     expect(state).toEqual({ received: [], sent: [], spam: [], trash: [] });
-    expect(localStorage.clear).toHaveBeenCalled();
   });
   it("should add mails to state", () => {
     // GIVEN
@@ -24,7 +23,6 @@ describe("mails vuex store module", () => {
 
     // THEN
     expect(state.received).toEqual([{ id: 2 }, { id: 1 }]);
-    expect(localStorage.setItem).toHaveBeenCalledWith("mails-received", JSON.stringify([{ id: 2 }, { id: 1 }]));
   });
 
   it("should retrieve a list of mails from assets and commit them", () => {
@@ -59,13 +57,6 @@ describe("mails vuex store module", () => {
       { id: 1, seen: true },
       { id: 2, seen: true }
     ]);
-    expect(localStorage.setItem).toHaveBeenCalledWith(
-      "mails-received",
-      JSON.stringify([
-        { id: 1, seen: true },
-        { id: 2, seen: true }
-      ])
-    );
   });
 
   it("should get number of unread mails in received box", () => {

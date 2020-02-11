@@ -10,6 +10,13 @@ import "./assets/tailwind.css";
 
 Vue.config.productionTip = false;
 
+if (process.env.NODE_ENV === "development") {
+  window.setStep = function(stepName) {
+    store.commit("clear");
+    store.dispatch("loadFromStep", stepName);
+  };
+}
+
 new Vue({
   router,
   store,

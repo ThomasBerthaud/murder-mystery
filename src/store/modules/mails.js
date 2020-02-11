@@ -1,4 +1,3 @@
-//TODO: use a watcher to update localStorage instead of doing it with the store
 const getFromLocalStorage = itemName => JSON.parse(localStorage.getItem(itemName)) || [];
 
 const state = {
@@ -32,11 +31,9 @@ const mutations = {
     state.sent = [];
     state.spam = [];
     state.trash = [];
-    localStorage.clear();
   },
   add(state, { mailCategory, mails }) {
     state[mailCategory] = [...mails, ...state[mailCategory]];
-    localStorage.setItem(`mails-${mailCategory}`, JSON.stringify(state[mailCategory]));
   },
   setAsRead(state, { mail, mailCategory }) {
     state[mailCategory] = state[mailCategory].map(storedMail => {
@@ -45,7 +42,6 @@ const mutations = {
       }
       return storedMail;
     });
-    localStorage.setItem(`mails-${mailCategory}`, JSON.stringify(state[mailCategory]));
   }
 };
 

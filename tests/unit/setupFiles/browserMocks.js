@@ -8,6 +8,9 @@ const localStorageMock = (function() {
     setItem: jest.fn(function(key, value) {
       store[key] = value.toString();
     }),
+    removeItem: jest.fn(function(key) {
+      delete store[key];
+    }),
     clear: jest.fn(function() {
       store = {};
     })
