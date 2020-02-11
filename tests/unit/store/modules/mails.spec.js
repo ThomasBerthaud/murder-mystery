@@ -30,7 +30,7 @@ describe("mails vuex store module", () => {
   it("should retrieve a list of mails from assets and commit them", () => {
     // GIVEN
     const commit = jest.fn();
-    jest.mock("@/assets/mails/introduction.json", () => ({
+    jest.mock("@/assets/mails/introduction.js", () => ({
       received: [{ id: "received1" }],
       spam: [{ id: "spam1" }]
     }));

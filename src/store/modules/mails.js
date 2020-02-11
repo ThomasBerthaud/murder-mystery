@@ -1,3 +1,4 @@
+//TODO: use a watcher to update localStorage instead of doing it with the store
 const getFromLocalStorage = itemName => JSON.parse(localStorage.getItem(itemName)) || [];
 
 const state = {
@@ -16,7 +17,8 @@ const getters = {
 const actions = {
   loadFromStep({ commit }, step) {
     setTimeout(() => {
-      const mailsFromStep = require(`@/assets/mails/${step}.json`);
+      // TODO: extract require inside service to facilitate tests
+      const mailsFromStep = require(`@/assets/mails/${step}.js`);
       for (let [mailCategory, mails] of Object.entries(mailsFromStep)) {
         commit("add", { mailCategory, mails });
       }
