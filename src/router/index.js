@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import store from "../store";
-import Introduction from "../views/Introduction.vue";
+import Introduction from "../views/introduction/Introduction.vue";
 import Mystery from "../views/mystery/Mystery.vue";
 
 Vue.use(VueRouter);
@@ -27,7 +27,8 @@ const routes = [
         children: [
           {
             path: ":mailCategory",
-            component: () => import(/* webpackChunkName: "category" */ "../views/mystery/emails/EmailsCategory.vue"),
+            component: () =>
+              import(/* webpackChunkName: "category" */ "../views/mystery/emails/emails-category/EmailsCategory.vue"),
             props: true
           }
         ]
@@ -35,7 +36,7 @@ const routes = [
       {
         path: "chat",
         name: "chat",
-        component: () => import(/* webpackChunkName: "chat" */ "../views/mystery/Chat.vue")
+        component: () => import(/* webpackChunkName: "chat" */ "../views/mystery/chat/Chat.vue")
       }
     ]
   }

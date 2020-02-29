@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-full">
-    <div class="w-1/5 bg-gray-100 p-2 flex flex-col">
+    <div class="emails-list">
       <router-link to="/os/emails/received" class="category-title with-badge" :class="{ active: isRoute('received') }">
         <font-awesome-icon :icon="['fas', 'inbox']" fixed-width />
         <span title="Messages Reçus">Messages Reçus</span>
@@ -41,6 +41,9 @@ export default {
 </script>
 
 <style scoped>
+.emails-list {
+  @apply w-1/5 bg-gray-100 p-2 flex flex-col;
+}
 .category-title {
   @apply font-bold text-gray-800;
   @apply px-2 py-1 my-2 mx-1 cursor-pointer rounded;
